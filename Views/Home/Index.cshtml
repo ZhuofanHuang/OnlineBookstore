@@ -1,0 +1,12 @@
+﻿@model IEnumerable<OnlineBookstore.Models.Book>
+
+<h2>Book List</h2>
+
+<ul>
+    @foreach (var book in Model)
+    {
+        <li>
+            @Html.ActionLink(book.Title, "Details", new { id = book.Id })
+        </li>
+    }
+</ul>
