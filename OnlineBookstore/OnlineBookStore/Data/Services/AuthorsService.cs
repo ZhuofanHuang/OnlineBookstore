@@ -1,39 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using OnlineBookStore.Data.Base;
 using OnlineBookStore.Models;
 
 namespace OnlineBookStore.Data.Services
 {
-    public class AuthorsService : IAuthorsService
+    public class AuthorsService : EntityBaseRepository<Author>, IAuthorsService
     {
-        private readonly AppDbContext _context;
-        public AuthorsService(AppDbContext context)
-        {
-            _context = context;
-        }
-        public void Add(Author author)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void delete(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<IEnumerable<Author>> GetAll()
-        {
-            var result = await _context.Authors.ToListAsync(); 
-            throw new NotImplementedException();
-        }
-
-        public Author GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Author Update(int id, Author newAuthor)
-        {
-            throw new NotImplementedException();
-        }
+        public AuthorsService(AppDbContext context) : base(context) { }
     }
 }

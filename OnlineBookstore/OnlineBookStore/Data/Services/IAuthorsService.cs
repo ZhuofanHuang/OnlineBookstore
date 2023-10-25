@@ -1,15 +1,11 @@
 ﻿using Humanizer;
 using Microsoft.CodeAnalysis.FlowAnalysis.DataFlow;
+using OnlineBookStore.Data.Base;
 using OnlineBookStore.Models;
 
 namespace OnlineBookStore.Data.Services
 {
-    public interface IAuthorsService
+    public interface IAuthorsService : IEntityBaseRepository<Author>
     {
-        Task<IEnumerable<Author>> GetAll();
-        Author GetById(int id);
-        void Add(Author author);
-        Author Update(int id, Author newAuthor);
-        void delete(int id);
     }
 }

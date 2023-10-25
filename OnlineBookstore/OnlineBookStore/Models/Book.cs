@@ -1,11 +1,12 @@
-﻿using OnlineBookStore.Data.Enum;
+﻿using OnlineBookStore.Data.Base;
+using OnlineBookStore.Data.Enum;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Security.Principal;
 
 namespace OnlineBookStore.Models
 {
-    public class Book
+    public class Book : IEntityBase
     {
         [Key]
         public int Id { get; set; }

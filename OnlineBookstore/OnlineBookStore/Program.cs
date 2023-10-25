@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using OnlineBookStore.Data;
+using OnlineBookStore.Data.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +8,9 @@ builder.Services.AddDbContext<OnlineBookStore.Data.AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString")));
 
 // Add services to the container.
+builder.Services.AddScoped<IAuthorsService, AuthorsService>();
+builder.Services.AddScoped<IPublishersService, PublishersService>();
+builder.Services.AddScoped<IBooksService, BooksService>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
