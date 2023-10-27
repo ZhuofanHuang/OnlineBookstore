@@ -23,23 +23,34 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Books" asp-action="Index"><i class="bi bi-book"></i> Books</a>
                         </li>
+
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        {
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="bi bi-gear"></i> Management
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" asp-controller="Publishers" asp-action="Index"> <i class="bi bi-building"></i> Publishers</a>
-                                <a class="dropdown-item" asp-controller="Authors" asp-action="Index"> <i class="bi bi-vector-pen"></i> Authors</a>
+                                    <a class="dropdown-item" asp-controller="Publishers" asp-action="Index"> <i class="bi bi-building"></i> Publishers</a>
+                                    <a class="dropdown-item" asp-controller="Authors" asp-action="Index"> <i class="bi bi-vector-pen"></i> Authors</a>
                                 </div>
                             </li>
-                    </ul>
+                        }
+                        </ul>
                     <form class="form-inline my-2 my-lg-0" asp-controller="Books" asp-action="Filter">
-                        <div class="input-group">
+                        <div class="input-group" style="padding-right: 25px">
                             <input name="searchString" type="text" class="form-control" placeholder="Search for a book..." aria-label="Search for a book..." aria-describedby="button-addon2">
                             <button class="btn btn-outline-success" type="submit" id="button-addon2"><i class="bi bi-search"></i></button>
                         </div>
                     </form>
+
+                    <ul class="navbar-nav">
+                            @await Component.InvokeAsync("ShoppingCartSummary")
+                    </ul>
+
+                    <partial name="_Identity.cshtml" />
+
                 </div>
             </div>
         </nav>
@@ -52,7 +63,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2023 - OnlineBookStore 
+            &copy; 2023 - OnlineBookStore
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

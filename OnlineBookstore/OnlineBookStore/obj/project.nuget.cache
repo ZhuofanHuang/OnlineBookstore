@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "4AFs4xYR0V6rK5Cy3SXa851sNReWvvSCwchI7yo9+O8GkD+Wd7opT04FWm7yUcyqZBlIpmEqwrBZ4DPYJWoUEw==",
+  "dgSpecHash": "BPotpb9iuVyi9WKHT1Oqyvx2yiHfl9ENh1FmAqVjIDhSM9y5h0rbEB+efnEjM5coFtj5dqOA/oSrsO5j++mVsg==",
   "success": true,
   "projectFilePath": "D:\\Homework\\809W\\Project\\Phase3\\OnlineBookstore\\OnlineBookStore\\OnlineBookStore.csproj",
   "expectedPackageFiles": [
@@ -59,6 +59,9 @@
     "C:\\Users\\10020\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\10020\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",
     "C:\\Users\\10020\\.nuget\\packages\\messagepackanalyzer\\2.1.152\\messagepackanalyzer.2.1.152.nupkg.sha512",
+    "C:\\Users\\10020\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.23\\microsoft.aspnetcore.cryptography.internal.6.0.23.nupkg.sha512",
+    "C:\\Users\\10020\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.23\\microsoft.aspnetcore.cryptography.keyderivation.6.0.23.nupkg.sha512",
+    "C:\\Users\\10020\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\6.0.23\\microsoft.aspnetcore.identity.entityframeworkcore.6.0.23.nupkg.sha512",
     "C:\\Users\\10020\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\6.0.0\\microsoft.aspnetcore.razor.language.6.0.0.nupkg.sha512",
     "C:\\Users\\10020\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\5.0.0\\microsoft.bcl.asyncinterfaces.5.0.0.nupkg.sha512",
     "C:\\Users\\10020\\.nuget\\packages\\microsoft.build\\17.3.2\\microsoft.build.17.3.2.nupkg.sha512",
@@ -94,6 +97,8 @@
     "C:\\Users\\10020\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
     "C:\\Users\\10020\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\10020\\.nuget\\packages\\microsoft.extensions.dependencymodel\\7.0.0\\microsoft.extensions.dependencymodel.7.0.0.nupkg.sha512",
+    "C:\\Users\\10020\\.nuget\\packages\\microsoft.extensions.identity.core\\6.0.23\\microsoft.extensions.identity.core.6.0.23.nupkg.sha512",
+    "C:\\Users\\10020\\.nuget\\packages\\microsoft.extensions.identity.stores\\6.0.23\\microsoft.extensions.identity.stores.6.0.23.nupkg.sha512",
     "C:\\Users\\10020\\.nuget\\packages\\microsoft.extensions.logging\\7.0.0\\microsoft.extensions.logging.7.0.0.nupkg.sha512",
     "C:\\Users\\10020\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.0\\microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\10020\\.nuget\\packages\\microsoft.extensions.options\\7.0.0\\microsoft.extensions.options.7.0.0.nupkg.sha512",

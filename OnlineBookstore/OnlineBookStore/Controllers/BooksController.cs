@@ -1,13 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client;
 using OnlineBookStore.Data;
 using OnlineBookStore.Data.Services;
+using OnlineBookStore.Data.Static;
 using OnlineBookStore.Models;
 
 namespace OnlineBookStore.Controllers
 {
+    [Authorize(Roles = UserRoles.Admin)]
     public class BooksController : Controller
     {
         
@@ -16,12 +19,15 @@ namespace OnlineBookStore.Controllers
         {
             _service = service;
         }
+
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             var data = await _service.GetAllAsync(n => n.Author);
             return View(data);
         }
 
+        [AllowAnonymous]
         public async Task<IActionResult> Filter(string searchString)
         {
             var data = await _service.GetAllAsync(n => n.Author);
@@ -36,6 +42,7 @@ namespace OnlineBookStore.Controllers
         }
 
         //Get: Books/Details/1
+        [AllowAnonymous]
         public async Task<IActionResult> Details(int id)
         {
             var bookDetail = await _service.GetBookByIdAsync(id);

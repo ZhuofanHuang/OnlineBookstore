@@ -1,6 +1,10 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using OnlineBookStore.Data;
+using OnlineBookStore.Data.Cart;
 using OnlineBookStore.Data.Services;
+using OnlineBookStore.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +15,19 @@ builder.Services.AddDbContext<OnlineBookStore.Data.AppDbContext>(options =>
 builder.Services.AddScoped<IAuthorsService, AuthorsService>();
 builder.Services.AddScoped<IPublishersService, PublishersService>();
 builder.Services.AddScoped<IBooksService, BooksService>();
+builder.Services.AddScoped<IOrdersService, OrdersService>();
+
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddScoped(sc => ShoppingCart.GetShoppingCart(sc));
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
+builder.Services.AddMemoryCache();
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+});
+
+builder.Services.AddSession();
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
@@ -27,7 +44,9 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseSession();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
@@ -36,5 +55,5 @@ app.MapControllerRoute(
 
 //Seed database
 AppDbInitializer.Seed(app);
-
+AppDbInitializer.SeedUsersAndRolesAsync(app).Wait();
 app.Run();

@@ -1,11 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using OnlineBookStore.Data;
 using OnlineBookStore.Data.Services;
+using OnlineBookStore.Data.Static;
 using OnlineBookStore.Models;
 
 namespace OnlineBookStore.Controllers
 {
+    [Authorize(Roles = UserRoles.Admin)]
     public class PublishersController : Controller
     {
         private readonly IPublishersService _service;
@@ -13,6 +16,8 @@ namespace OnlineBookStore.Controllers
         {
             _service = service;
         }
+
+        [AllowAnonymous]
         public async Task <IActionResult> Index()
         {
             var data = await _service.GetAllAsync();
@@ -20,6 +25,7 @@ namespace OnlineBookStore.Controllers
         }
 
         //Get: Publishers/Details/1
+        [AllowAnonymous]
         public async Task<IActionResult> Details(int id)
         {
             var publisherDetails = await _service.GetByIdAsync(id);
