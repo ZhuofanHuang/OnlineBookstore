@@ -68,6 +68,20 @@ namespace OnlineBookStore.Controllers
                 return View(registerVM);
             }
 
+            // IPasswordValidator<ApplicationUser>
+            var passwordValidator = new PasswordValidator<ApplicationUser>();
+
+            var result = await passwordValidator.ValidateAsync(_userManager, null, registerVM.Password);
+
+            if (!result.Succeeded)
+            {
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                }
+                return View(registerVM);
+            }
+
             var newUser = new ApplicationUser()
             {
                 FullName = registerVM.FullName,
@@ -87,6 +101,7 @@ namespace OnlineBookStore.Controllers
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
+            HttpContext.Session.Clear();
             return RedirectToAction("Index", "Books");
         }
 

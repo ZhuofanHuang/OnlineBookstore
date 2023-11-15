@@ -19,7 +19,20 @@ builder.Services.AddScoped<IOrdersService, OrdersService>();
 
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped(sc => ShoppingCart.GetShoppingCart(sc));
-builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+{
+    options.Password.RequiredLength = 8; // Set the required password length
+    options.Password.RequireDigit = true; // Require a digit (0-9)
+    options.Password.RequireLowercase = true; // Require a lowercase letter (a-z)
+    options.Password.RequireUppercase = true; // Require an uppercase letter (A-Z)
+    options.Password.RequireNonAlphanumeric = true; // Require a non-alphanumeric character
+
+    options.Lockout.MaxFailedAccessAttempts = 5; 
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30); 
+})
+    .AddEntityFrameworkStores<AppDbContext>()
+    .AddDefaultTokenProviders();
+
 builder.Services.AddMemoryCache();
 builder.Services.AddAuthentication(options =>
 {
@@ -29,6 +42,17 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddSession();
 
 builder.Services.AddControllersWithViews();
+
+builder.Services.Configure<PasswordHasherOptions>(options =>
+{
+    options.IterationCount = 12000;
+});
+
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.Cookie.HttpOnly = true;
+    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+});
 
 var app = builder.Build();
 
