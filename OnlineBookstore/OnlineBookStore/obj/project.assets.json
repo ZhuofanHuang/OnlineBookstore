@@ -11602,24 +11602,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\10020\\.nuget\\packages\\": {},
-    "D:\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Zeit\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Homework\\809W\\Project\\Phase3\\OnlineBookstore\\OnlineBookStore\\OnlineBookStore.csproj",
+      "projectUniqueName": "D:\\Homework\\repos\\OnlineBookstore\\OnlineBookStore\\OnlineBookStore.csproj",
       "projectName": "OnlineBookStore",
-      "projectPath": "D:\\Homework\\809W\\Project\\Phase3\\OnlineBookstore\\OnlineBookStore\\OnlineBookStore.csproj",
-      "packagesPath": "C:\\Users\\10020\\.nuget\\packages\\",
-      "outputPath": "D:\\Homework\\809W\\Project\\Phase3\\OnlineBookstore\\OnlineBookStore\\obj\\",
+      "projectPath": "D:\\Homework\\repos\\OnlineBookstore\\OnlineBookStore\\OnlineBookStore.csproj",
+      "packagesPath": "C:\\Users\\Zeit\\.nuget\\packages\\",
+      "outputPath": "D:\\Homework\\repos\\OnlineBookstore\\OnlineBookStore\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "D:\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\10020\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Zeit\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -11640,6 +11635,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -11684,6 +11684,24 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[6.0.35, 6.0.35]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[6.0.35, 6.0.35]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[6.0.35, 6.0.35]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[6.0.35, 6.0.35]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -11692,7 +11710,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }
