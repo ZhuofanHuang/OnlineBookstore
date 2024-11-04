@@ -1,0 +1,22 @@
+# 使用官方 ASP.NET Core 运行时镜像
+FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
+WORKDIR /app
+EXPOSE 80
+EXPOSE 443
+
+# 使用官方 ASP.NET Core SDK 镜像进行构建
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+WORKDIR /src
+COPY ["OnlineBookstore/OnlineBookstore.csproj", "OnlineBookstore/"]
+RUN dotnet restore "OnlineBookstore/OnlineBookstore.csproj"
+COPY . .
+WORKDIR "/src/OnlineBookstore"
+RUN dotnet build "OnlineBookstore.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "OnlineBookstore.csproj" -c Release -o /app/publish
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "OnlineBookstore.dll"]
